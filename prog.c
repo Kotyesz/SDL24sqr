@@ -90,4 +90,5 @@ int main(){
 	rect[3].y=HEIGHT/2-1;
 	loop();
 	pthread_join(thread,NULL);
+	return 0;
 }
