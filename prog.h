@@ -3,29 +3,36 @@
 #include<stdio.h>
 #include<pthread.h>
 #include"SDL2/SDL.h"
-#define TITLE "Alma"
-#define WIDTH 800
-#define HEIGHT 800
+#include"config.h"
 #define SWAP(a,b) a^=b;b^=a;a^=b
+
 _Bool running = 1;
 
 SDL_Window *window; 
 SDL_Renderer *renderer;
-SDL_Rect rect[4];
-int colors[4][3] = {
-	{255,0,0},
-	{0,0,255},
-	{0,0,0},
-	{255,255,255}
+
+SDL_Rect rect[6];
+short colors[5][3] = {
+	{COLOR_BG1},
+	{COLOR_BG2},
+	{COLOR_BG3},
+	{COLOR_BG4},
+	{COLOR_CUBE}
 };
-
-
-_Bool initEverythin();
-_Bool initSDL();
-_Bool createWindow();
-_Bool createRenderer();
-void swapCols();
-void setupRenderer();
-void render();
-void loop();
-void *t2loop(void *value);
+_Bool 
+	right=0,
+	up=0,
+	kb[4],
+	initEverythin(),
+	initSDL(),
+	createWindow(),
+	createRenderer();
+void 
+	cube(),
+	cubeMove(),
+	swapCols(short a,short b, short c, short d),
+	setupRenderer(),
+	render(),
+	loop(),
+	*t2loop(void *value),
+	*t3loop(void *value);
