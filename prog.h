@@ -1,6 +1,5 @@
 #pragma once
 #include"prog.h"
-#include<stdio.h>
 #include<pthread.h>
 #include"SDL2/SDL.h"
 #include"config.h"
@@ -19,20 +18,20 @@ short colors[5][3] = {
 	{COLOR_BG4},
 	{COLOR_CUBE}
 };
-_Bool 
+_Bool
 	right=0,
 	up=0,
-	kb[4],
-	initEverythin(),
+	kb[4];
+void
 	initSDL(),
 	createWindow(),
-	createRenderer();
-void 
+	createRenderer(),
 	cube(),
 	cubeMove(),
 	swapCols(short a,short b, short c, short d),
 	setupRenderer(),
 	render(),
 	loop(),
+	error(const char* e),
 	*t2loop(void *value),
 	*t3loop(void *value);
